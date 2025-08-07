@@ -1,11 +1,10 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Mover : MonoBehaviour
 {
-    [SerializeField] float xValue = 0f;
-    [SerializeField] float yValue = 0.01f;  
-    [SerializeField] float zValue = 0f;
 
+    Vector2 moveInput;
     void Start()
     {
         
@@ -13,6 +12,15 @@ public class Mover : MonoBehaviour
 
     void Update()
     {
+        float xValue = moveInput.x * Time.deltaTime * 10f;
+        float yValue = 0f;
+        float zValue = moveInput.y * Time.deltaTime * 10f;
         transform.Translate(xValue, yValue, zValue);
+    }
+
+    void OnMove(InputValue value)
+    {
+        moveInput = value.Get<Vector2>();
+        Debug.Log("Move input: " + moveInput);
     }
 }
