@@ -8,6 +8,7 @@ public class TriggerProjectile : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             projectile.SetActive(true);
+            Destroy(gameObject);
         }
     }
 }
