@@ -12,6 +12,5 @@ public class ObjectHit : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         meshRenderer.material.color = material.color;
-        Debug.Log("Something hit the object: " + collision.gameObject.name);
     }
 }
