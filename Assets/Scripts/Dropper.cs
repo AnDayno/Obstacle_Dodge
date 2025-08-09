@@ -2,9 +2,12 @@ using UnityEngine;
 
 public class Dropper : MonoBehaviour
 {
-
+    [SerializeField] float timeToWait = 3f;
     void Update()
     {
-        Debug.Log("Time: " + Time.time);
+        if (Time.time > timeToWait)
+        {
+            GetComponent<Rigidbody>().useGravity = true;
+        }
     }
 }
